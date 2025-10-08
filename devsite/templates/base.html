@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}My App{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="{% block body_class %}signup-page{% endblock %}">
+
+  {# Optional header area (leave empty for now) #}
+  {% block header %}{% endblock %}
+
+  {# The centered white box the CSS styles as .signup-container #}
+  <div class="{% block container_class %}signup-container{% endblock %}">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
