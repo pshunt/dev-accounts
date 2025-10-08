@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+  <h2>Your Profile</h2>
+  <h4>Manage your account</h4>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label class="form-label" for="email">Email address</label>
+      <input type="email" name="email" id="email" value="{{ request.user.email }}" required>
+    </div>
+
+    <button type="submit" name="update_email" class="btn-submit">Update Email</button>
+  </form>
+
+  <hr style="margin: 2rem 0;">
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="delete_account" class="btn-submit" style="background-color: #dc3545;">
+      Delete My Account
+    </button>
+  </form>
+
+  <form action="{% url 'logout' %}" method="post" style="margin-top: 1.5rem; text-align: center;">
+    {% csrf_token %}
+    <button type="submit" class="btn-submit" style="background-color: #6c757d;">
+      Log Out
+    </button>
+  </form>
+{% endblock %}
+
