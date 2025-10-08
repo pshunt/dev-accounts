@@ -29,8 +29,6 @@ This project demonstrates a basic authentication workflow in Django:
 - Password reset using Django's built-in tools is currently deactivated in development but maybe activated in production.
 - Custom 404 error page with optional JavaScript and CSS styling
 
-- 
-
 ---
 
 ## Requirements
@@ -120,7 +118,25 @@ project_root/
 ├── requirements.txt
 └── README.md
 
+Vidoes of the Process
 
+# Video of Sign-up Process
+https://github.com/user-attachments/assets/eb983dc6-3624-426c-acaa-847e7559a9d8
+
+# Video of Updating Email on Account
+https://github.com/user-attachments/assets/280f00e1-4a62-4b05-832c-708515985701
+
+# Video of Deleting Account
+https://github.com/user-attachments/assets/2867eba7-ea24-45ec-93c3-a5436db62cc4
+
+# Video of Routing Redirection Depending on Login Status
+https://github.com/user-attachments/assets/a5065fb6-1cea-4045-a949-78a71a913a26
+
+# Video of 404 Wrong Link Example
+https://github.com/user-attachments/assets/56144f70-777b-4945-aa1a-70f993cea427
+
+
+Additiional Notes
 
     Use SQLite for local testing and PostgreSQL for deployment.
 
