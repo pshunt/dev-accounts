@@ -18,6 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from core import views as core_views
 from django.contrib.auth import views as auth_views
+from django.conf.urls import handler404
+
+handler404 = 'core.views.custom_404'
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +38,8 @@ urlpatterns = [
         template_name='registration/password_reset_form.html'
     ), name='password_reset'),
     path('profile/', core_views.profile, name='profile'),
+
+
 
 
 ]

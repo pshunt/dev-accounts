@@ -1,59 +1,3 @@
-# from .forms import CustomSignupForm
-# # from .forms import CustomUserCreationForm as UserCreationForm
-# # from django.contrib.auth.forms import UserCreationForm
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import login
-
-# def home(request):
-#     return render(request, 'home.html')
-
-# def signup(request):
-#     if request.method == "POST":
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect('home')
-#     else:
-#         form = UserCreationForm()
-#     return render(request, 'registration/signup.html', {'form': form})
-
-
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import login
-# from django.contrib.auth.decorators import login_required
-# from .forms import CustomSignupForm
-# from django.contrib.auth.models import User
-
-# def home(request):
-#     return render(request, 'home.html')
-
-# def signup(request):
-#     if request.method == "POST":
-#         form = CustomSignupForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect('profile')
-#     else:
-#         form = CustomSignupForm()
-#     return render(request, 'registration/signup.html', {'form': form})
-
-
-# @login_required
-# def profile(request):
-#     if request.method == 'POST':
-#         if 'update_email' in request.POST:
-#             new_email = request.POST.get('email')
-#             if new_email:
-#                 request.user.email = new_email
-#                 request.user.save()
-#         elif 'delete_account' in request.POST:
-#             request.user.delete()
-#             return redirect('login')
-
-#     return render(request, 'core/profile.html')
-
 # core/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
@@ -64,6 +8,8 @@ from .models import CustomUser  # ✅ Your model
 def home(request):
     return render(request, 'home.html')
 
+def custom_404(request, exception=None):
+    return render(request, '404.html', status=404)
 
 def signup(request):
     """Handles user signup and redirects to profile page after registration."""
