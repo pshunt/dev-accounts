@@ -1,4 +1,4 @@
-# dev-accounts
+# Authentication App
 
 # User Authentication and Profile Management App
 - Email-based signup and login
