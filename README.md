@@ -1,13 +1,15 @@
 # Authentication App
 
 # User Authentication and Profile Management App
-- Email-based signup and login
-- Account deletion
-- Custom 404
+- ✅ Basic email-based signup and login 
+- ✅ Basic password requirements 
+- ✅ Account deletion 
+- ✅ Update email 
+- ✅ Custom 404 
 
 ## Development Plan:
-- Use PostgreSQL in Production server
-- Deploy on Render.com under free-instance 
+- ✅ Use PostgreSQL in Production server 
+- 🏗️ Deploy on Render.com under free-instance 
 - Connect email backend provider
 - Setup email - password reset with expiring links
 - Setup email - verification on accounts upon setup with expiring links 
@@ -26,8 +28,8 @@ This project demonstrates a basic authentication workflow in Django:
 - User registration (signup)
 - Login and logout
 - Profile page with email update and account deletion
-- Password reset using Django's built-in tools is currently deactivated in development but maybe activated in production.
-- Custom 404 error page with optional JavaScript and CSS styling
+- Password reset using Django's built-in tools is currently deactivated (non-active) in development but maybe activated in production.
+- Custom animated 404 error page 
 
 ---
 
