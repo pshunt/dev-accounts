@@ -73,7 +73,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-WSGI_APPLICATION = 'devsite.wsgi.application'
+WSGI_APPLICATION = os.getenv("WSGI.APPLICATION")
 
 
 # Database

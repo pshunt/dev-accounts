@@ -86,7 +86,8 @@ Home			/
 Custom 404		Visit a non-existent route
 
 
-Folder Structure
+Folder Structure 
+Note: To view properly, please click and view under "Raw" setting
 
 project_root/
 ├── core/
@@ -120,21 +121,21 @@ project_root/
 ├── requirements.txt
 └── README.md
 
-Vidoes of the Process
+<h3>Instructional Videos</h3>
 
-# Video of Sign-up Process
+# Sign-up Process
 https://github.com/user-attachments/assets/eb983dc6-3624-426c-acaa-847e7559a9d8
 
-# Video of Updating Email on Account
+# Updating Email on Profile Page
 https://github.com/user-attachments/assets/280f00e1-4a62-4b05-832c-708515985701
 
-# Video of Deleting Account
+# Deleting an Account on Profile Page 
 https://github.com/user-attachments/assets/2867eba7-ea24-45ec-93c3-a5436db62cc4
 
-# Video of Routing Redirection Depending on Login Status
+# Redirecing to Login or Profile Page Based on Status
 https://github.com/user-attachments/assets/a5065fb6-1cea-4045-a949-78a71a913a26
 
-# Video of 404 Wrong Link Example
+# 404 Example if Landing on a Malformed-link Page
 https://github.com/user-attachments/assets/56144f70-777b-4945-aa1a-70f993cea427
 
 
