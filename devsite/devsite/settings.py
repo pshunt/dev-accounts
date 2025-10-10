@@ -28,6 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,8 +68,10 @@ TEMPLATES = [
 ]
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 WSGI_APPLICATION = 'devsite.wsgi.application'
 
@@ -85,8 +89,7 @@ WSGI_APPLICATION = 'devsite.wsgi.application'
 
 # Postgres Section
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l@8ndt76i5c6*070ym3lcl0ib1b&6q$tr%5sej5%=)++7p0+vf'
-
+SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
@@ -94,7 +97,8 @@ DEBUG_PROPAGATE_EXCEPTIONS = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-https://ncidxhptsqitunyvwtjf.supabase.co
+
+
 
 # Load .env variables for local development
 load_dotenv()
