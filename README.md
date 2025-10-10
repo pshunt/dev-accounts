@@ -12,7 +12,8 @@
 ## Development Plan:
 - ✅ Use PostgreSQL in Production server 
 - ✅  Deploy on Render.com under free-instance 
-- 🏗️ Connect DataDog for app analytics
+- 🏗️ Connect DataDog for app analytics 
+- 🏗️ Connect an analytics provider for usage analytics 
 - 🏗️ Connect email backend provider
 - Setup email - password reset with expiring links
 - Setup email - verification on accounts upon setup with expiring links 
@@ -150,7 +151,7 @@ Additiional Notes
 
     Run python manage.py createsuperuser to access the Django admin panel.
 
-Aknowledgements:
+Acknowledgements:
 
-Custom 404 page and code was designed and written by Ahmed B. Hameed:
+- Custom 404 page and code was designed and written by Ahmed B. Hameed:
 https://codepen.io/Ahmed_B_Hameed/pen/LZqNmp

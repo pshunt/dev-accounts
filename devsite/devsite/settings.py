@@ -36,10 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'csp',
 ]
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    "csp.middleware.CSPMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -115,6 +117,7 @@ def env_bool(name, default=False):
 
 DEBUG = env_bool("DEBUG", default=False)
 
+
 # DATABASE CONFIG
 DATABASES = {
     "default": dj_database_url.config(
@@ -124,6 +127,20 @@ DATABASES = {
     )
 }
 
+# Turn on strict mode (use REPORT_ONLY first while testing, see below)
+CSP_DEFAULT_SRC = ("'self'",)
+
+# Allow the analytics script host (adjust if their script loads from a different host)
+CSP_SCRIPT_SRC = ("'self'", "https://api.analyzee.io")
+
+# Allow beacons/websocket connections
+CSP_CONNECT_SRC = ("'self'", "https://api.analyzee.io", "wss://api.analyzee.io")
+
+# If they use an image pixel:
+CSP_IMG_SRC = ("'self'", "https://api.analyzee.io", "data:")
+
+# While you test, run in report-only mode so nothing breaks:
+CSP_REPORT_ONLY = True   # flip to False when you’re satisfied
 
 
 AUTH_USER_MODEL = 'core.CustomUser'
