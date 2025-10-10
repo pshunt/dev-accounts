@@ -99,11 +99,13 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 
 # Load .env variables for local development
-load_dotenv()
+# load_dotenv()
+load_dotenv(BASE_DIR / ".env")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
+SECRET_KEY = os.getenv("SECRET_KEY")
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
 DEBUG = os.getenv("DEBUG") == "0"
 
 # DATABASE CONFIG
