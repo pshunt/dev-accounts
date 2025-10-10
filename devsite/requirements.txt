@@ -18,3 +18,7 @@ django-allauth>=0.63.3  # optional: adds robust auth features
 
 # Optional if you ever add image uploads or avatars
 Pillow>=10.0
+
+dj-database-url>=2.1.0,<3.0
+
+python-dotenv>=1.0.1,<2.0
