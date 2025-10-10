@@ -1,5 +1,7 @@
 # Authentication App
 
+🎉 Live In-production Web-link: https://dev-accounts-qwaz.onrender.com
+
 # User Authentication and Profile Management App
 - ✅ Basic email-based signup and login 
 - ✅ Basic password requirements 
@@ -9,8 +11,9 @@
 
 ## Development Plan:
 - ✅ Use PostgreSQL in Production server 
-- 🏗️ Deploy on Render.com under free-instance 
-- Connect email backend provider
+- ✅  Deploy on Render.com under free-instance 
+- 🏗️ Connect DataDog for app analytics
+- 🏗️ Connect email backend provider
 - Setup email - password reset with expiring links
 - Setup email - verification on accounts upon setup with expiring links 
 - Setup OAuth (ie. Google, Github account login ability)

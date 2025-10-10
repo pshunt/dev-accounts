@@ -106,7 +106,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
-DEBUG = os.getenv("DEBUG") == "0"
+DEBUG = os.getenv("DEBUG")
 
 # DATABASE CONFIG
 DATABASES = {
