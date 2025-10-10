@@ -7,16 +7,16 @@
 - ✅ Basic password requirements 
 - ✅ Account deletion 
 - ✅ Update email 
-- ✅ Custom 404 (Credit at bottom)  
+- ✅ Custom 404 (Credit at bottom) 🛠️CSS
 
 ## Development Plan:
 - ✅ Use PostgreSQL in Production server 
-- ✅  Deploy on Render.com under free-instance 
-- 🏗️ Connect DataDog for app analytics 
-- 🏗️ Connect an analytics provider for usage analytics 
-- 🏗️ Connect email backend provider
-- Setup email - password reset with expiring links
-- Setup email - verification on accounts upon setup with expiring links 
+- ✅ Deploy on Render.com under basic instance 
+- ✅ Connect DataDog for app analytics 
+- 🛠️ Connect an analytics usage provider (analyzee)  
+- 🏗️ Connect email backend provider (Supabase & Resend)
+- 🏗️ Setup email - password reset with expiring links (Supabase)
+- 🏗️ Setup email - verification on accounts upon setup with expiring links (Supabase)
 - Setup OAuth (ie. Google, Github account login ability)
 - Configure MFA/2FA with a SMS service such as Twilio with existing plan
 - Add enhanced security with account lockouts and rate limiting on 
