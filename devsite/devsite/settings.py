@@ -90,7 +90,6 @@ WSGI_APPLICATION = os.getenv("WSGI.APPLICATION")
 # Postgres Section
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 
 DEBUG_PROPAGATE_EXCEPTIONS = False
 
@@ -106,7 +105,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
-DEBUG = os.getenv("DEBUG")
+
+
+def env_bool(name, default=False):
+    val = os.getenv("DEBUG")
+    if val is None:
+        return default
+    return str(val).strip().lower() in ("1", "true", "yes", "on")
+
+DEBUG = env_bool("DEBUG", default=False)
 
 # DATABASE CONFIG
 DATABASES = {
@@ -116,10 +123,6 @@ DATABASES = {
         ssl_require=os.getenv("RENDER", "0") == "1",
     )
 }
-# RENDER=1
-
-### POSTGRES ###
-
 
 
 
