@@ -14,9 +14,15 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
+from csp.constants import SELF
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# load_dotenv()
+load_dotenv(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
@@ -100,8 +106,7 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
 
 # Load .env variables for local development
-# load_dotenv()
-load_dotenv(BASE_DIR / ".env")
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -127,20 +132,16 @@ DATABASES = {
     )
 }
 
-# Turn on strict mode (use REPORT_ONLY first while testing, see below)
-CSP_DEFAULT_SRC = ("'self'",)
 
-# Allow the analytics script host (adjust if their script loads from a different host)
-CSP_SCRIPT_SRC = ("'self'", "https://api.analyzee.io")
-
-# Allow beacons/websocket connections
-CSP_CONNECT_SRC = ("'self'", "https://api.analyzee.io", "wss://api.analyzee.io")
-
-# If they use an image pixel:
-CSP_IMG_SRC = ("'self'", "https://api.analyzee.io", "data:")
-
-# While you test, run in report-only mode so nothing breaks:
-CSP_REPORT_ONLY = True   # flip to False when you’re satisfied
+# New Content Security Policy
+CONTENT_SECURITY_POLICY = {
+    "EXCLUDE_URL_PREFIXES": ["/admin"],
+    "DIRECTIVES": {
+        "default-src": [SELF, "*.example.com"],
+        "script-src": [SELF, "js.cdn.com/example/"],
+        "img-src": [SELF, "data:", "example.com"],
+    },
+}
 
 
 AUTH_USER_MODEL = 'core.CustomUser'
