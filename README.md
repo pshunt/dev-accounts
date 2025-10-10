@@ -7,7 +7,7 @@
 - ✅ Basic password requirements 
 - ✅ Account deletion 
 - ✅ Update email 
-- ✅ Custom 404 
+- ✅ Custom 404 (Credit at bottom)  
 
 ## Development Plan:
 - ✅ Use PostgreSQL in Production server 
@@ -149,3 +149,8 @@ Additiional Notes
     To change databases, update the DATABASES setting in project_root/settings.py.
 
     Run python manage.py createsuperuser to access the Django admin panel.
+
+Aknowledgements:
+
+Custom 404 page and code was designed and written by Ahmed B. Hameed:
+https://codepen.io/Ahmed_B_Hameed/pen/LZqNmp
