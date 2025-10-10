@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    "csp.middleware.CSPMiddleware",
+    'csp.middleware.CSPMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -135,11 +135,20 @@ DATABASES = {
 
 # New Content Security Policy
 CONTENT_SECURITY_POLICY = {
+    # Don’t enforce on admin (optional)
     "EXCLUDE_URL_PREFIXES": ["/admin"],
+
     "DIRECTIVES": {
-        "default-src": [SELF, "*.example.com"],
-        "script-src": [SELF, "js.cdn.com/example/"],
-        "img-src": [SELF, "data:", "example.com"],
+        # Keep this tight by default
+        "default-src": [SELF],
+
+        "script-src": [SELF, "https://api.analyzee.io"],
+
+        "connect-src": [SELF, "https://api.analyzee.io", "wss://api.analyzee.io"],
+
+        "img-src": [SELF, "data:"],
+
+        
     },
 }
 
