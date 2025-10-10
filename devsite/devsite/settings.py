@@ -135,20 +135,15 @@ DATABASES = {
 
 # New Content Security Policy
 CONTENT_SECURITY_POLICY = {
-    # Don’t enforce on admin (optional)
     "EXCLUDE_URL_PREFIXES": ["/admin"],
-
     "DIRECTIVES": {
-        # Keep this tight by default
         "default-src": [SELF],
 
-        "script-src": [SELF, "https://api.analyzee.io"],
+        "script-src": [SELF, "https://api.analyzee.io", "https://cdn.analyzee.io"],
 
         "connect-src": [SELF, "https://api.analyzee.io", "wss://api.analyzee.io"],
 
-        "img-src": [SELF, "data:"],
-
-        
+        "img-src": [SELF, "data:", "https://api.analyzee.io", "https://cdn.analyzee.io"],
     },
 }
 
