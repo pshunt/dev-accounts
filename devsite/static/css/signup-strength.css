@@ -1,0 +1,72 @@
+/* Wrapper: one-column grid sized to label, right-aligned */
+.password-strength-wrapper {
+  display: grid;
+  grid-template-columns: max-content; /* column width = widest item (the label) */
+  justify-content: end;               /* push to the right */
+  row-gap: 4px;                       /* space between label and meter */
+  margin-top: 8px;                    /* space from the password field */
+}
+
+/* Label: subtle, same style as 'Forgot password?' */
+.password-strength-label {
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: normal;
+  text-align: right;
+}
+
+/* Meter: exactly the label width, single outlined box */
+#pwd-meter {
+  width: 100%;              /* equals label width because of grid column */
+  height: 10px;
+  border: 1px solid #ccc;   /* single gray outline */
+  border-radius: 6px;
+  background: transparent;
+  box-sizing: border-box;
+  --pwd-color: #c62828;     /* default (updated by JS) */
+}
+
+/* Remove native track/border to avoid the second box */
+#pwd-meter::-webkit-meter-bar {
+  background: none;
+  border: none;
+  border-radius: 6px;
+}
+#pwd-meter::-moz-meter-bar {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Filled portion (sharp colors, smooth change) */
+#pwd-meter::-webkit-meter-optimum-value,
+#pwd-meter::-webkit-meter-suboptimum-value,
+#pwd-meter::-webkit-meter-even-less-good-value {
+  background: linear-gradient(
+    to right,
+    var(--pwd-color),
+    color-mix(in srgb, var(--pwd-color) 85%, white)
+  );
+  border-radius: 6px;
+}
+#pwd-meter::-moz-meter-bar {
+  background: linear-gradient(
+    to right,
+    var(--pwd-color),
+    color-mix(in srgb, var(--pwd-color) 85%, white)
+  );
+  border-radius: 6px;
+}
+
+/* Optional: slight easing on color change */
+#pwd-meter,
+#pwd-meter::-webkit-meter-optimum-value,
+#pwd-meter::-moz-meter-bar {
+  transition: background 180ms ease;
+}
+
+/* Hint text (if present) */
+#pwd-hint {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+}

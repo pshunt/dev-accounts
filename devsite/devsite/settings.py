@@ -155,9 +155,15 @@ AUTH_USER_MODEL = 'core.CustomUser'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'OPTIONS': {
+            # Since email = username, include both:
+            'user_attributes': ('email', 'username'),
+            'max_similarity': 0.7,  # tighten if you like (lower = stricter)
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {'min_length': 12}
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -165,6 +171,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {"NAME": "core.validators.CharacterClassValidator",
+     "OPTIONS": {"min_classes": 3}},
+    {"NAME": "core.validators.EmailNotInPasswordValidator"},
 ]
 
 LOGIN_URL = 'login'

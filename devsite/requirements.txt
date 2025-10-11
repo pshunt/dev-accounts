@@ -19,8 +19,17 @@ django-allauth>=0.63.3  # optional: adds robust auth features
 # Optional if you ever add image uploads or avatars
 Pillow>=10.0
 
+# For PostgreSQL
 dj-database-url>=2.1.0,<3.0
 
+# Import Envrionment Variables
 python-dotenv>=1.0.1,<2.0
 
+# Content Security Policies
 django-csp>=4.0,<5.0
+
+# Email (Resend via Anymail)
+django-anymail[resend]==12.0
+
+# Authentication / OAuth 
+django-allauth==65.0.2

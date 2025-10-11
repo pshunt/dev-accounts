@@ -1,5 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Sign Up{% endblock %}
+
+{% block head_extra %}
+  <link rel="stylesheet" href="{% static 'css/signup-strength.css' %}">
+{% endblock %}
 
 {# Tell base.html to use the blue background #}
 {% block body_class %}signup-page{% endblock %}
@@ -32,13 +37,25 @@
         </label>
         <a href="{% url 'password_reset' %}" class="forgot-link" tabindex="-1">Forgot password?</a>
       </div>
+
       {{ form.password1 }}
       {{ form.password1.errors }}
+
       {% if form.password1.help_text %}
         <div class="password-help">{{ form.password1.help_text|safe }}</div>
       {% endif %}
-    </div>
 
+      <!-- ✅ Password strength meter + live feedback -->
+      <div class="password-strength-wrapper">
+        <div class="password-strength-label">Password Strength</div>
+        <meter id="pwd-meter" min="0" max="4" value="0"></meter>
+      </div>
+
+      <div id="pwd-hint"
+           class="password-hint text-sm text-muted"
+           style="margin-top: 4px;"
+           aria-live="polite">
+      </div>
     <!-- Password 2 -->
     <div class="form-group">
       <label for="{{ form.password2.id_for_label }}" class="form-label">
@@ -54,4 +71,11 @@
   <p class="alt-action">
     Already have an account? <a href="{% url 'login' %}">Log in</a>
   </p>
+{% endblock %}
+
+{% block scripts %}
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"
+          integrity="sha512-GVLOd4M4b8v2Yb8tN7s0w0wK8yq0TQ3bX3V1CkS8l1o8m0fT9hC1sYWl4lVh6m1n9Vw6E0ZgH8u2f5Q4N8GQdA=="
+          crossorigin="anonymous"></script>
+  <script defer src="{% static 'js/signup-strength.js' %}"></script>
 {% endblock %}

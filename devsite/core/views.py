@@ -5,6 +5,7 @@ from .forms import CustomUserCreationForm
 from .models import CustomUser  # ✅ Your model
 
 
+
 # ⬇️ Replace your current home() view with this one
 def home(request):
     """Redirects based on authentication status."""

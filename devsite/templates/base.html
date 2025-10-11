@@ -2,22 +2,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>{% block title %}My App{% endblock %}</title>
+
+  <!-- Global stylesheet -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!-- Optional extra <head> content for child templates -->
+  {% block head_extra %}{% endblock %}
+
+  <!-- Third-party analytics (safe to load async) -->
   <script async src="https://cdn.analyzee.io/sdk/H3LjDP5NXRwFtN2KN3Yc.js"></script>
 </head>
-<body class="{% block body_class %}signup-page{% endblock %}">
+<body class="{% block body_class %}{% endblock %}">
 
-  {# Optional header area (leave empty for now) #}
   {% block header %}{% endblock %}
 
-  {# The centered white box the CSS styles as .signup-container #}
-  <div class="{% block container_class %}signup-container{% endblock %}">
+  <main class="{% block container_class %}container{% endblock %}">
     {% block content %}{% endblock %}
-  </div>
+  </main>
 
-  {% block scripts %}{% endblock %}
+  {% block footer %}{% endblock %}
+
+ {# --- PAGE-SPECIFIC SCRIPTS GO HERE --- #}
+{% block scripts %}{% endblock %}
 </body>
 </html>
