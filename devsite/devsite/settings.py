@@ -121,7 +121,7 @@ def env_bool(name, default=False):
     return str(val).strip().lower() in ("1", "true", "yes", "on")
 
 DEBUG = env_bool("DEBUG", default=False)
-
+DEBUG = 0 
 
 # DATABASE CONFIG
 DATABASES = {
