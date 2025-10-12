@@ -8,7 +8,7 @@ class CustomUserCreationForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control password',  # ✅ fixed comma, consistent class name
-                'placeholder': '••••••••',
+                'placeholder': '••••••••••••',
                 'autocomplete': 'new-password',
             }
         ),

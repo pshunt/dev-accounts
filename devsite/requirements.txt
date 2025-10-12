@@ -33,3 +33,6 @@ django-anymail[resend]==12.0
 
 # Authentication / OAuth 
 django-allauth==65.0.2
+
+# Supabase
+supabase~=2.22

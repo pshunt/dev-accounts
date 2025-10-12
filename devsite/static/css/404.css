@@ -1,9 +1,6 @@
 /* scope to 404 page */
 body.error-page { background:#fff; font-family:'PT Sans Caption', Arial, sans-serif; }
 
-.ground-color {
-}
-
 /* center the visual */
 .error-page-content {
   min-height: 80vh;
