@@ -34,9 +34,7 @@ urlpatterns = [
     path('accounts/logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', core_views.signup, name='signup'),
-    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(
-        template_name='registration/password_reset_form.html'
-    ), name='password_reset'),
+    path("accounts/password_reset/", AppPasswordResetView.as_view(), name="password_reset"),
     path('profile/', core_views.profile, name='profile'),
 
 

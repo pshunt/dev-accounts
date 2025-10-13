@@ -10,6 +10,7 @@
 - ✅ Custom 404 (Credit at bottom) 🛠️CSS
 
 ## Development Plan:
+- ✅ Password strength meter & more verification checks
 - ✅ Use PostgreSQL in Production server 
 - ✅ Deploy on Render.com under basic instance 
 - ✅ Connect DataDog for app analytics 
@@ -17,7 +18,7 @@
 - 🏗️ Connect email backend provider (Supabase & Resend)
 - 🏗️ Setup email - password reset with expiring links (Supabase)
 - 🏗️ Setup email - verification on accounts upon setup with expiring links (Supabase)
-- Setup OAuth (ie. Google, Github account login ability)
+- 🏗️ Setup OAuth (ie. Google, Github account login ability)
 - Configure MFA/2FA with a SMS service such as Twilio with existing plan
 - Add enhanced security with account lockouts and rate limiting on 
 password attempts
@@ -33,7 +34,12 @@ This project demonstrates a basic authentication workflow in Django:
 - Login and logout
 - Profile page with email update and account deletion
 - Password reset using Django's built-in tools is currently deactivated (non-active) in development but maybe activated in production.
+- Password strength meter. 
+- Password requirments that include
+	- a minimum length of 12 characters.
+	- at least 3 of: lowercase, uppercase, digits, and symbols.
 - Custom animated 404 error page 
+ 
 
 ---
 
@@ -127,19 +133,19 @@ project_root/
 
 <h3>Instructional Videos</h3>
 
-# Sign-up Process
+# V1. Sign-up Process
 https://github.com/user-attachments/assets/eb983dc6-3624-426c-acaa-847e7559a9d8
 
-# Updating Email on Profile Page
+# V1. Updating Email on Profile Page
 https://github.com/user-attachments/assets/280f00e1-4a62-4b05-832c-708515985701
 
-# Deleting an Account on Profile Page 
+# V1. Deleting an Account on Profile Page 
 https://github.com/user-attachments/assets/2867eba7-ea24-45ec-93c3-a5436db62cc4
 
-# Redirecing to Login or Profile Page Based on Status
+# V1. Redirecing to Login or Profile Page Based on Status
 https://github.com/user-attachments/assets/a5065fb6-1cea-4045-a949-78a71a913a26
 
-# 404 Example if Landing on a Malformed-link Page
+# V1. 404 Example if Landing on a Malformed-link Page
 https://github.com/user-attachments/assets/56144f70-777b-4945-aa1a-70f993cea427
 
 

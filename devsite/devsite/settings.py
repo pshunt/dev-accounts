@@ -35,15 +35,32 @@ load_dotenv(BASE_DIR / ".env")
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
+    
+    #Third Party
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'django.contrib.sites',
     'csp',
+
+    # Apps
+    'core',
 ]
+
+SITE_ID = 1
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.resend.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "resend"
+EMAIL_HOST_PASSWORD = os.getenv("RESEND_API_KEY")
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "DUXV <noreply@duxv.ca>"
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -178,7 +195,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'profile'
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
 
 # Internationalization

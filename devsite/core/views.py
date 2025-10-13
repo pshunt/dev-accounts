@@ -2,17 +2,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
-from .models import CustomUser  # ✅ Your model
+from .models import CustomUser 
 
 
 
-# ⬇️ Replace your current home() view with this one
+
 def home(request):
     """Redirects based on authentication status."""
     if request.user.is_authenticated:
         return redirect('profile')
     else:
         return redirect('login')
+
+# def home(request):
+#     return render(request, "home.html")
+
+
+
 
 
 def custom_404(request, exception=None):
@@ -52,9 +58,16 @@ def profile(request):
     return render(request, 'core/profile.html', {'message': message})
 
 
-# ⬇️ Add this new view at the end of the file
 @login_required
 def logout_view(request):
     """Logs out the user and redirects to login page."""
     logout(request)
     return redirect('login')
+
+
+class AppPasswordResetView(PasswordResetView):
+    email_template_name = "registration/password_reset_email.html"
+    subject_template_name = "registration/password_reset_subject.txt"
+    template_name = "registration/password_reset_form.html"
+    success_url = reverse_lazy("password_reset_done")
+    from_email = "DUXV <noreply@duvx.ca>"
