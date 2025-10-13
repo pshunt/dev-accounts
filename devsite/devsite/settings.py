@@ -120,6 +120,11 @@ DEBUG_PROPAGATE_EXCEPTIONS = False
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
+if os.getenv("RENDER", "0") == "1":
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    USE_X_FORWARDED_HOST = True
+    # (optional) force https at the app level
+    SECURE_SSL_REDIRECT = True
 
 
 # Load .env variables for local development
