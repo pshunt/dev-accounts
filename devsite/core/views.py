@@ -3,8 +3,9 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from .models import CustomUser 
-
-
+from django.contrib.auth.views import PasswordResetView
+from django.urls import reverse_lazy
+from django.conf import settings
 
 
 def home(request):
@@ -66,8 +67,8 @@ def logout_view(request):
 
 
 class AppPasswordResetView(PasswordResetView):
+    template_name = "registration/password_reset_form.html"
     email_template_name = "registration/password_reset_email.html"
     subject_template_name = "registration/password_reset_subject.txt"
-    template_name = "registration/password_reset_form.html"
     success_url = reverse_lazy("password_reset_done")
-    from_email = "DUXV <noreply@duvx.ca>"
+    from_email = getattr(settings, "no-reply@duxv.ca", None)
