@@ -1,6 +1,8 @@
 # Authentication App
 
-🎉 Live In-production Web-link: https://dev-accounts-qwaz.onrender.com
+🎉 Live In-production Web-link: https://www.duxv.ca
+
+Source hosting:(https://dev-accounts-qwaz.onrender.com)
 
 # User Authentication and Profile Management App
 - ✅ Basic email-based signup and login 
@@ -14,7 +16,7 @@
 - ✅ Use PostgreSQL in Production server 
 - ✅ Deploy on Render.com under basic instance 
 - ✅ Connect DataDog for app analytics 
-- 🛠️ Connect an analytics usage provider (analyzee)  
+- ✅ Setup custom domain
 - 🏗️ Connect email backend provider (Supabase & Resend)
 - 🏗️ Setup email - password reset with expiring links (Supabase)
 - 🏗️ Setup email - verification on accounts upon setup with expiring links (Supabase)
@@ -25,6 +27,7 @@ password attempts
 - Improved cookie and session management 
 - Captcha before login 
 - May consider magic link login and look for IP geolocation anomalies.
+- 🛠️ Connect an analytics usage provider (prev. analyzee;)  
 
 
 ## Overview
